@@ -1,10 +1,10 @@
-import type { ReactNode } from "react";
 import Link from "next/link";
 import {
   FadeIn,
   FadeInStagger,
   FadeInStaggerItem,
 } from "@/components/AnimatedSection";
+import ScrollFeatureShowcase from "@/components/ScrollFeatureShowcase";
 
 function LogoMark() {
   return (
@@ -13,14 +13,6 @@ function LogoMark() {
       <svg className="relative z-10 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
       </svg>
-    </div>
-  );
-}
-
-function IconFrame({ children }: { children: ReactNode }) {
-  return (
-    <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] text-cyan-200">
-      {children}
     </div>
   );
 }
@@ -37,90 +29,6 @@ const proofCards = [
   {
     value: "Patient-owned",
     label: "Share the clean record forward without waiting on a fax queue.",
-  },
-];
-
-const capabilityCards = [
-  {
-    title: "Portal gravity breaker",
-    description:
-      "Connect modern patient portals and stop forcing people to remember where each result lives.",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m9.86-2.06a4.5 4.5 0 00-6.364-6.364L4.5 8.25l4.5 4.5" />
-      </svg>
-    ),
-  },
-  {
-    title: "Document rescue layer",
-    description:
-      "Upload referral packets, discharge paperwork, lab PDFs, screenshots, and scanned records without breaking the workflow.",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12h6m-6 3h3.75m-8.25 3h13.5A2.25 2.25 0 0021 18.75V7.5a2.25 2.25 0 00-.659-1.591l-4.25-4.25A2.25 2.25 0 0014.5 1H5.25A2.25 2.25 0 003 3.25v15.5A2.25 2.25 0 005.25 21z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Trust by provenance",
-    description:
-      "Every data point keeps its source, facility, and import method attached so clinicians know what they are looking at.",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Provider handoff packets",
-    description:
-      "Turn fragmented charts into a clean summary a new physician can review before the patient repeats their history from scratch.",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5" />
-      </svg>
-    ),
-  },
-  {
-    title: "Live continuity score",
-    description:
-      "Show where the patient record is strong, where it is stale, and which outside systems still hold missing context.",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125l4.243-4.243a1.5 1.5 0 012.121 0l2.758 2.758a1.5 1.5 0 002.121 0l6.507-6.507M21 7.5v6h-6" />
-      </svg>
-    ),
-  },
-  {
-    title: "Consent-first sharing",
-    description:
-      "Patients control which provider gets access, for how long, and with a full audit trail behind every export.",
-    icon: (
-      <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M18 8.25h.008v.008H18V8.25zm0 0A2.25 2.25 0 0020.25 6V4.5A2.25 2.25 0 0018 2.25h-1.5A2.25 2.25 0 0014.25 4.5V6A2.25 2.25 0 0016.5 8.25M18 8.25H6A2.25 2.25 0 003.75 10.5v9A2.25 2.25 0 006 21.75h12A2.25 2.25 0 0020.25 19.5v-9A2.25 2.25 0 0018 8.25z" />
-      </svg>
-    ),
-  },
-];
-
-const workflow = [
-  {
-    step: "01",
-    title: "Pull records from wherever they already live",
-    description:
-      "Connect compatible portals first, then backfill the stubborn systems with uploads, exports, and scanned paperwork.",
-  },
-  {
-    step: "02",
-    title: "Normalize them into one longitudinal story",
-    description:
-      "MedBridge organizes medications, labs, encounters, and documents into a record a human can actually reason about.",
-  },
-  {
-    step: "03",
-    title: "Move care forward with less friction",
-    description:
-      "Share a clean packet with the next provider instead of restarting the intake loop at every visit.",
   },
 ];
 
@@ -317,45 +225,19 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="px-4 py-16 sm:px-6 sm:py-24">
+        <ScrollFeatureShowcase />
+
+        <section className="px-4 py-12 sm:px-6 sm:py-18">
           <div className="mx-auto max-w-7xl">
-            <FadeIn className="max-w-3xl">
-              <span className="section-label">Product surface</span>
-              <h2 className="mt-6 text-4xl font-semibold tracking-[-0.04em] text-white sm:text-5xl">
-                Built for the ugly reality of fragmented care, not the fantasy of perfect interoperability.
-              </h2>
-              <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-300">
-                MedBridge works when APIs exist, when only exports exist, and when all you have is a scanned packet
-                from a system that still thinks faxing is a modern workflow.
-              </p>
-            </FadeIn>
-
-            <FadeInStagger className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-              {capabilityCards.map((card) => (
-                <FadeInStaggerItem key={card.title}>
-                  <div className="glass-panel-soft h-full rounded-[1.8rem] p-6 transition-transform duration-300 hover:-translate-y-1">
-                    <IconFrame>{card.icon}</IconFrame>
-                    <h3 className="mt-5 text-xl font-semibold text-white">{card.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-slate-300">{card.description}</p>
-                  </div>
-                </FadeInStaggerItem>
-              ))}
-            </FadeInStagger>
-          </div>
-        </section>
-
-        <section className="px-4 py-16 sm:px-6 sm:py-24">
-          <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.92fr_1.08fr]">
             <FadeIn className="glass-panel rounded-[2rem] p-7 sm:p-8">
               <span className="section-label">Execution model</span>
-              <h2 className="mt-6 text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
-                The beta path is clear: ingest anything, normalize everything, share cleanly.
+              <h2 className="mt-6 max-w-3xl text-3xl font-semibold tracking-[-0.04em] text-white sm:text-4xl">
+                Under the scroll effects, the core idea stays disciplined: ingest anything, normalize everything, share cleanly.
               </h2>
-              <p className="mt-5 text-base leading-8 text-slate-300">
-                This is not an EHR replacement pitch. It is a workflow repair layer for patients and clinicians stuck
-                between incompatible systems.
+              <p className="mt-5 max-w-2xl text-base leading-8 text-slate-300">
+                The experience can feel cinematic, but the workflow underneath is still about durable trust, provenance, and clean handoffs across broken systems.
               </p>
-              <div className="mt-8 space-y-3">
+              <div className="mt-8 grid gap-3 md:grid-cols-2 xl:grid-cols-4">
                 {trustLayers.map((item) => (
                   <div key={item} className="flex items-start gap-3 rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-3">
                     <span className="mt-1 h-2.5 w-2.5 rounded-full bg-cyan-300 shadow-[0_0_12px_rgba(103,232,249,0.8)]" />
@@ -364,24 +246,6 @@ export default function Home() {
                 ))}
               </div>
             </FadeIn>
-
-            <FadeInStagger className="grid gap-4">
-              {workflow.map((item) => (
-                <FadeInStaggerItem key={item.step}>
-                  <div className="glass-panel-soft rounded-[1.8rem] p-6 sm:p-7">
-                    <div className="flex items-start gap-5">
-                      <div className="rounded-2xl bg-gradient-to-br from-cyan-300 via-teal-300 to-violet-400 px-4 py-3 text-lg font-semibold text-slate-950">
-                        {item.step}
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-semibold text-white">{item.title}</h3>
-                        <p className="mt-3 max-w-2xl text-sm leading-7 text-slate-300">{item.description}</p>
-                      </div>
-                    </div>
-                  </div>
-                </FadeInStaggerItem>
-              ))}
-            </FadeInStagger>
           </div>
         </section>
 
